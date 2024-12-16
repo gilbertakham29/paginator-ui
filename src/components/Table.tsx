@@ -1,22 +1,18 @@
-import {
-  DataTable,
-  DataTablePageEvent,
-  DataTableSelectionMultipleChangeEvent,
-} from "primereact/datatable";
+import { DataTable, DataTablePageEvent } from "primereact/datatable";
 import { Column } from "primereact/column";
 import axios, { all } from "axios";
 import { useEffect, useRef, useState } from "react";
 import { OverlayPanel } from "primereact/overlaypanel";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
-import { ArtWork, PaginatorState } from "../interface/table";
+import { ArtWork } from "../interface/table";
 export default function Table() {
   const [dataValues, setDataValues] = useState<ArtWork[]>([]);
   const [loading, setLoading] = useState(false);
-  const [clickRow, setClickRow] = useState([]);
+
   const [searchInput, setSearchInput] = useState("");
   const btnRef = useRef<OverlayPanel>(null);
-  const [selectRow, setSelectRow] = useState(null);
+
   const [dataFetch, setDataFetch] = useState(0);
   const [page, setPages] = useState(1);
 
